@@ -1,4 +1,4 @@
-# Simple Projet Python : Découverte Data Enginerring
+# Simple Projet Python : Découverte Data Enginering
 
 ## Description
 
@@ -11,6 +11,7 @@ Nous chargeons un fichier.csv qui contient des utilisateurs et leurs information
 - Python 3.7
 - Docker
 - Docker-compose
+- Git 
 
 - cloner le projet (faire une copie sur son ordinateur)
 - créer un environnement virtuel 
