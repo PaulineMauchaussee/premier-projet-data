@@ -2,6 +2,7 @@ import pandas as p
 import datetime
 
 
+
 file_path ="clients.csv"
 data = p.read_csv(file_path)
 print(data.head())

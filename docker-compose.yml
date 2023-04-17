@@ -1,0 +1,22 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:   # liste des logicielss à installer 
+  db:  # nom de la configuration 
+    image: mariadb:10.11   # version de MariaDB que nous voulons télécharger 
+    restart: unless-stopped # Si le logiciel s'arrête, il se relance automatiquement
+    environment:
+      MARIADB_ROOT_PASSWORD: example  # mot de passe de l'utilisateur root
+      MYSQL_USER: utilisateur   # nom de l'utilisateur
+      MYSQL_PASSWORD: utilisateur  # mot de passe de l'utilisateur 
+      MYSQL_DATABASE: exemple    # nom de la base de données 
+    volumes:
+        - ./sql/install.sql:/docker-entrypoint-initdb.d/setup.sql
+    ports:
+      - 3306:3306
+
+  adminer:
+    image: adminer:4.8.1
+    restart: always
+    ports:
+      - 8080:8080

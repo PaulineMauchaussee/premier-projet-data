@@ -42,13 +42,13 @@ def ajouter_client(cnx: Connection , data: p.DataFrame):
     # on crée un curseur. Un curseur permet de parcourir les enregistrements d'un résultat
     curseur = cnx.cursor()
     # on crée une requête sql pour ajouter les clients
-    sql = "INSERT INTO clients (id, nom, prenom, email, profession, pays, ville) \
-        VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO clients (id, nom, prenom, email, profession, pays, ville, date_de_naissance, salaire) \
+        VALUES (%s, %s, %s, %s, %s, %s, %s,%s, %s)"
     
     for index, row in data.iterrows():
         # on exécute la requête sql
         curseur.execute(sql, \
-            (row["id"], row["firstname"], row["lastname"], row["email"], row["profession"], row["country"], row["city"]))
+            (row["id"], row["firstname"], row["lastname"], row["email"], row["profession"], row["country"], row["city"], row["birthdate"], row["salary"]))
         
     # on commit les changements. Commiter permet de valider les changements
     cnx.commit()
@@ -65,7 +65,7 @@ if __name__ == "__main__":
     db_database = "exercice"
     
     # on lit le fichier csv
-    table_clients = lire_csv("client.csv")
+    table_clients = lire_csv("clients.csv")
     
     # on se connecte à la base de données. C'est comme lancer un appel téléphonique
     cnx = se_connecter_db(db_host, db_user, db_password, db_database)

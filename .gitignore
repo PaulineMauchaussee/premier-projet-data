@@ -1,5 +1,5 @@
-#Ce fichier permet d'éviter de sauvegarder des répertoires inutiles dans le repogit
+# Ce fichier permet d'éviter de sauvegarder des répertoires inutiles dans le repogit
 # ou des fichiers qui peeuvent être générés automatiquement 
-# environnement virtuel 
 
+# environnement virtuel 
 .venv
